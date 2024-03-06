@@ -47,7 +47,7 @@ const Container = () => {
             </div>
 
             <div className="hidden lg:flex w-full">
-                <YouMayAlsoLike data={data} loading={loading} />
+                <YouMayAlsoLike />
             </div>
         </div>
     );

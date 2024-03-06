@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import axios from 'axios';
+const API = "https://api.coingecko.com/api/v3/search/trending";
 
-const TrendingCoinsCarousel = ({ data, loading }) => {
+const TrendingCoinsCarousel = () => {
+
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const fetchData = async() => {
+        setLoading(true);
+        const response = await axios.get(API);
+
+        console.log(response);
+
+        setData(response?.data?.coins);
+
+        console.log(data);
+
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
 
     if (loading || data === null) {
 

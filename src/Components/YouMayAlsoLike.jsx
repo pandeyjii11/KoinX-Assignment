@@ -1,21 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import TrendingCoinsCarousel from "./TrendingCoinsCarousel";
+import axios from "axios";
 
-const YouMayAlsoLike = ({data, loading}) => {
-
-    if(loading || !data) {
-
-        console.log("Here");
-
-        return(
-            <div className="flex items-center justify-center w-[100vw] h-[100vh]">
-                Laoding ...
-            </div>
-        )
-    }
-    
-    const coinsData = data?.coins;
-    console.log(coinsData);
+const YouMayAlsoLike = () => {
 
     return(
         <div className=" bg-white p-6 flex  flex-col gap-6 w-full rounded-lg lg:rounded-none lg:p-16">
@@ -23,13 +10,13 @@ const YouMayAlsoLike = ({data, loading}) => {
                 You May Also Like
             </h1>
             
-            <TrendingCoinsCarousel data={coinsData} loading={loading} />
+            <TrendingCoinsCarousel />
 
             <h2 className="font-semibold text-2xl">
                 Trending Coins
             </h2>
 
-            <TrendingCoinsCarousel data={coinsData} loading={loading} />
+            <TrendingCoinsCarousel />
         </div>
     );
 }

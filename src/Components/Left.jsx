@@ -19,7 +19,7 @@ const Left = ({data, loading}) => {
             <Tokenomics />
             <Team />
             <div className="flex lg:hidden">
-                <YouMayAlsoLike data={data} loading={loading} />
+                <YouMayAlsoLike />
             </div>
         </div>
     );
